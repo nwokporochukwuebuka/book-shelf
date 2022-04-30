@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
+.archived{
+  cursor: not-allowed;
+}
+
+.archiver{
+  display: none;
+}
+
+.archived-img{
+  filter: blur(4px);
+  cursor: not-allowed;
+}
+
+.archived-link{
+  cursor: not-allowed;
+}
+
+.mystyle{
+  position: relative;
+}

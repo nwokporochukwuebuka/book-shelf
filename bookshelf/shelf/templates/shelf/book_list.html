@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% if books %}
+    {% if user.is_superuser %}
+        <div class="row">
+            {% for book in books %}
+                {% if book.archived %}
+                    <div class="col-lg-4 mystyle">
+                        <a href="#" class="d-block mb-2 h-100 archived-link">
+                            <img src="{{ book.book_cover.url }}" height="200px" width="200px" class="img-fluid rounded archived-img" alt="{{ book.title }}" />
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col-lg-4">
+                        <a href="{% url 'book:detail' pk=book.pk %}" class="d-block mb-2 h-100">
+                            <img src="{{book.book_cover.url}}" height="200px" width="200px" class="img-fluid rounded" alt="{{book.title}}" />
+                        </a>
+                    </div>
+                {% endif %}
+                
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+            <div class="wrapper d-flex justify-content-center" style="margin-top: 30px;">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination ">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item bg-dark"><a class="page-link bg-dark text-white border" href="?page={{page_obj.prebious_page_number}}">Previous</a></li>
+                        {% endif %}
+                        {% for number in page_obj.paginator.page_range %}
+                            <li class="page-item"><a class="page-link bg-dark text-white border" href="?page={{number}}">{{number}}</a></li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link text-white bg-dark border" href="?page={{page_obj.prebious_page_number}}">Next</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+    {% endif %}
+
+
+    {% if not user.is_superuser and not user.is_staff %}
+        <div class="row">
+            {% for book in books %}
+                {% if not book.archived %}
+                    <div class="col-lg-4">
+                        <a href="{% url 'book:detail' pk=book.pk %}" class="d-block mb-2 h-100">
+                            <img src="{{book.book_cover.url}}" class="img-fluid rounded" alt="{{book.title}}" height="200px" width="200px"/>
+                        </a>
+                    </div>
+                {% endif %}
+                
+            {% endfor %}
+        </div>
+
+        {% if is_paginated %}
+            <div class="wrapper d-flex justify-content-center" style="margin-top: 30px;">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination ">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item bg-dark"><a class="page-link bg-dark text-white border" href="?page={{page_obj.prebious_page_number}}">Previous</a></li>
+                        {% endif %}
+                        {% for number in page_obj.paginator.page_range %}
+                            <li class="page-item"><a class="page-link bg-dark text-white border" href="?page={{number}}">{{number}}</a></li>
+                        {% endfor %}
+                        {% if page_obj.has_next %}
+                            <li class="page-item"><a class="page-link text-white bg-dark border" href="?page={{page_obj.prebious_page_number}}">Next</a></li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+    {% endif %}
+
+
+{% else %}
+    <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+            There is no book, yet. {% if user.is_authenticated %}But if you want, you can add from <a class="badge badge-info" href="{% url 'book:create' %}"><strong>here.</strong></a>{% endif %}
+        </div>
+    </div>
+{% endif %}
+
+
+
+
+
+
+
+
+
+{% endblock %}

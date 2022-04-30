@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+    <h1 class="my-4">Detail -
+        <small>{{ book_detail.title }}</small>
+    </h1>
+    <div class="row">
+        <div class="col-12">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Title:</strong> {{ book_detail.title }}</li>
+                <li class="list-group-item"><strong>Author:</strong> {{ book_detail.author }}</li>
+                <li class="list-group-item"><strong>Category:</strong> {{ book_detail.categories }}</li>
+                <li class="list-group-item"><strong>Description:</strong> {{ book_detail.description }}</li>
+            </ul>
+        </div>
+    </div>
+
+    {% if user.is_superuser %}
+        <div class="col-12" style="overflow-x: scroll">
+            <table class="table" style="margin-top: 25px; margin-bottom: 25px;">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Archive</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                    <tr>
+                        <td>{{ book_detail.title }}</td>
+                        <td>{{ book_detail.author }}</td>
+                        <td>{{ book_detail.categories }}</td>
+                        
+                        {% if book_detail.archived %}
+                            <td><a href="{% url 'book:edit' book_detail.pk %}" style="cursor: not-allowed;"><button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></a></td>
+                            <td><a href="{% url 'book:archive' book_detail.pk %}" style="cursor: not-allowed;"><button type="button" class="btn btn-outline-secondary btn-sm">Archive</button></a></td>
+                            <td><a href="{% url 'book:delete' book_detail.pk %}" style="cursor: not-allowed;"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+                        {% else %}
+                            <td><a href="{% url 'book:edit' book_detail.pk %}"><button type="button" class="btn btn-outline-secondary btn-sm">Edit</button></a></td>
+                            <td><a href="{% url 'book:archive' book_detail.pk %}"><button type="button" class="btn btn-outline-secondary btn-sm">Archive</button></a></td>
+                            <td><a href="{% url 'book:delete' book_detail.pk %}"><button type="button" class="btn btn-outline-danger btn-sm">Delete</button></a></td>
+                        {% endif %}
+                    </tr>
+                
+            </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    <div class="container mx-auto d-block">
+        <img src="{{ book_detail.book_cover.url }}" height="500" width="400" style="margin-top: 10px; margin-bottom: 10px;" />
+    </div>
+    <a class="btn btn-success text-center" href="{% url 'book:list' %}" style="margin-top: 10px; margin-bottom: 10px;">Back</a>
+{% endblock %}
