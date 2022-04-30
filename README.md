@@ -37,46 +37,46 @@ This project was done using [Python Programming Language](https://www.python.org
 
 
 * The booklist page is like this 
-![image](./My ScreenShots/homepage-no-book.png)
+![image](\My ScreenShots\homepage-no-book.png)
 
 * Next we login our superuser
- ![image](/book-shelf/My ScreenShots/login-admin.png)
+ ![image](/My ScreenShots/login-admin.png)
 
 * After logging in as super user we'll be redirected to the homepage which contains no book, let us add new books,
-![image](./My ScreenShots/admin-no-book.png)
+![image](/My ScreenShots/admin-no-book.png)
 
 * Our add a new book page looks like this
-![image](./My ScreenShots/amin-add-new.png)
+![image](/My ScreenShots/amin-add-new.png)
 
 After adding some images we'll have these view
-![image](./My ScreenShots/admin-added-image1.png)
-![image](./My ScreenShots/admin-added-image2.png)
-![image](./My ScreenShots/admin-added-image3.png)
+![image](/My ScreenShots/admin-added-image1.png)
+![image](/My ScreenShots/admin-added-image2.png)
+![image](/My ScreenShots/admin-added-image3.png)
 
 * Checking the details of what we have built looks like this 
-![image](./My ScreenShots/admin-detail-page-1.png)
-![image](./My ScreenShots/admin-detail-page-2.png)
+![image](/My ScreenShots/admin-detail-page-1.png)
+![image](/My ScreenShots/admin-detail-page-2.png)
 
 * Editing the the books have the following look 
-![image](./My ScreenShots/admin-edit-page-1.png)
-![image](./My ScreenShots/admin-edit-page-2.png)
+![image](/My ScreenShots/admin-edit-page-1.png)
+![image](/My ScreenShots/admin-edit-page-2.png)
 
 * Archiving the book looks like
-![image](./My ScreenShots/admin-archived-images-1.png)
+![image](/My ScreenShots/admin-archived-images-1.png)
 
 * Deleting a book looks like 
-*![image](./My ScreenShots/admin-confirm-delete-page.png)
+*![image](/My ScreenShots/admin-confirm-delete-page.png)
 
 * Logging Out looks like 
-![image](./My ScreenShots/login-admin.png)
+![image](/My ScreenShots/login-admin.png)
 
 * Registering another user whi is not a superuser and viewing the details of each book. Meanwhile for every other view operations is not functional because he/she is not admin
 
 * Active user sign up
-![image](./My ScreenShots/new-user-signin.png)
-![image](./My ScreenShots/active-user-login.png)
-![image](./My ScreenShots/incorrect-login-details.png)
-![image](./My ScreenShots/active-user-login-homepage.png)
-![image](./My ScreenShots/active-user-detail-page-1.png)
-![image](./My ScreenShots/active-user-detail-page-2.png)
+![image](/My ScreenShots/new-user-signin.png)
+![image](/My ScreenShots/active-user-login.png)
+![image](/My ScreenShots/incorrect-login-details.png)
+![image](/My ScreenShots/active-user-login-homepage.png)
+![image](/My ScreenShots/active-user-detail-page-1.png)
+![image](/My ScreenShots/active-user-detail-page-2.png)
 
